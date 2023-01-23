@@ -135,6 +135,7 @@ header {
 
 section[data-indicator] {
   padding-top: 112px;
+  /* padding-top: var(--move-size); */
 }
 
 section[data-indicator] .section-content {
