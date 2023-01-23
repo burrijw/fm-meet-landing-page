@@ -134,8 +134,8 @@ header {
 ====================================================*/
 
 section[data-indicator] {
-  padding-top: 112px;
-  /* padding-top: var(--move-size); */
+  /* padding-top: 112px; */
+  padding-top: calc(var(--move-size) * -1);
 }
 
 section[data-indicator] .section-content {
@@ -178,7 +178,7 @@ section[data-indicator] .section-content {
 ====================================================*/
 
 .image-grid {
-  margin-block-start: calc(4rem + var(--bulb-size) / 2 );
+  margin-block-start: calc(4rem + var(--bulb-size) / 2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding-inline: 1.5rem;
