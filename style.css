@@ -221,7 +221,35 @@ section[data-indicator] .section-content {
   Section 02 / Footer
 ====================================================*/
 
+.section-02 {
+  text-align: center;
+  color: var(--white);
+}
+
 .section-02__content {
   min-height: 300px;
   background-color: var(--blue-200);
+  position: relative;
+  padding-inline: var(--p-inline);
+  padding-block-start: 5.75rem;
+  padding-block-end: 4.5rem;
+}
+
+.section-02__content::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('./assets/mobile/image-footer.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--blue-200);
+  opacity: 11%;
+}
+
+.section-02__heading {
+  font: var(--ff-heading-sm);
 }
