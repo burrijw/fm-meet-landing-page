@@ -32,6 +32,8 @@
   --antenna-height: 84px;
   --bulb-size: 56px;
   --move-size: calc(-1 * (var(--antenna-height) + var(--bulb-size) / 2));
+
+  --p-inline: 1.5rem;
 }
 
 /*====================================================
@@ -39,12 +41,20 @@
 ====================================================*/
 
 body {
+  background-color: var(--white);
   overflow-x: hidden;
 }
 
 /*====================================================
   Utilities
 ====================================================*/
+
+.text-body {
+  font: var(--ff-body-sm);
+  color: var(--manatee);
+  max-width: 45ch;
+  margin-inline: auto;
+}
 
 /*====================================================
 Header
@@ -66,8 +76,8 @@ header {
 ====================================================*/
 
 .hero {
-  --p-inline: 1.5rem;
   text-align: center;
+  padding-inline: var(--p-inline);
 }
 
 .hero__image {
@@ -82,12 +92,7 @@ header {
 }
 
 .hero__copy {
-  font: var(--ff-body-sm);
-  padding-inline: var(--p-inline);
-  color: var(--manatee);
   margin-block-end: 2rem;
-  max-width: 45ch;
-  margin-inline: auto;
 }
 
 .btn-container {
@@ -174,17 +179,49 @@ section[data-indicator] .section-content {
 }
 
 /*====================================================
-  Image Grid
+  Section 01 / Image Grid
 ====================================================*/
+
+.section-01 {
+  padding-inline: var(--p-inline);
+  text-align: center;
+}
 
 .image-grid {
   margin-block-start: calc(4rem + var(--bulb-size) / 2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding-inline: 1.5rem;
   gap: 1.5rem;
+  margin-block-end: 4rem;
 }
 
 .image-grid img {
   border-radius: 0.5rem;
+}
+
+.section-01__overline {
+  font: var(--ff-overline);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: var(--blue-200);
+  text-align: center;
+  margin-block-end: 1.5rem;
+}
+
+.section-01__heading {
+  font: var(--ff-heading-sm);
+  margin-block-end: 2rem;
+}
+
+.section-01__copy {
+  margin-block-end: 4rem;
+}
+
+/*====================================================
+  Section 02 / Footer
+====================================================*/
+
+.section-02__content {
+  min-height: 300px;
+  background-color: var(--blue-200);
 }
