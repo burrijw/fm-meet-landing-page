@@ -27,23 +27,35 @@
       </header>
       <section class="hero">
         <!-- image -->
-        <img class="hero__image" src="./assets/tablet/image-hero.png" alt="" />
+        <picture>
+          <source
+            media="(min-width: 1024px)"
+            srcset="./assets/desktop/image-hero-left.png"
+          />
+          <img class="hero__image-left" src="./assets/tablet/image-hero.png" />
+        </picture>
         <!-- heading -->
-        <h1 class="hero__heading">Group Chat <br />for Everyone</h1>
-        <!-- copy -->
-        <p class="hero__copy text-body">
-          Meet makes it easy to connect with others face-to-face virtually and
-          collaborate across any device.
-        </p>
-        <!-- button container -->
-        <div class="btn-container">
-          <!-- button -->
-          <button class="btn" data-variant="blue">
-            Download <span class="version">v1.3</span>
-          </button>
-          <!-- link -->
-          <a class="btn" data-variant="purple" href="#">What is it?</a>
+        <div class="hero__content">
+          <h1 class="hero__heading">Group Chat <br />for Everyone</h1>
+          <!-- copy -->
+          <p class="hero__copy text-body">
+            Meet makes it easy to connect with others face-to-face virtually and
+            collaborate across any device.
+          </p>
+          <!-- button container -->
+          <div class="btn-container">
+            <!-- button -->
+            <button class="btn" data-variant="blue">
+              Download <span class="version">v1.3</span>
+            </button>
+            <!-- link -->
+            <a class="btn" data-variant="purple" href="#">What is it?</a>
+          </div>
         </div>
+        <img
+          src="./assets/desktop/image-hero-right.png"
+          class="hero__image-right"
+        />
       </section>
       <section data-indicator class="section-01">
         <div class="indicator">
@@ -104,9 +116,5 @@
         </div>
       </section>
     </main>
-
-    <!--
-      Download v1.3
-   -->
   </body>
 </html>
