@@ -85,7 +85,7 @@ header {
 }
 
 .logo {
-   width: 7.5rem;
+   width: 7.375rem;
 }
 
 /*====================================================
@@ -100,6 +100,7 @@ header {
 .hero__image-left {
    transform: scale(1.1) translateY(10%);
    margin-block-end: calc(5% + 3rem);
+   margin-inline: auto;
 }
 
 .hero__image-right {
@@ -110,7 +111,22 @@ header {
    padding-inline: var(--p-inline);
 }
 
+.hero::before {
+   content: '';
+   display: block;
+   height: clamp(8.75rem, 1.3839rem + 36.8304vw, 19.0625rem);
+   width: 110vw;
+   background-image: url('./assets/tablet/image-hero.png');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+   transform: translateX(-5%);
+   margin-inline: auto;
+   margin-block-end: 3rem;
+}
+
 .hero__heading {
+   max-width: 10ch;
    font: var(--ff-heading-md);
    color: var(--ebony-clay);
    margin-block-end: 1.5rem;
@@ -134,12 +150,13 @@ header {
 .btn {
    margin-inline: auto;
    display: block;
-   max-width: fit-content;
    text-decoration: none;
    font: var(--ff-button);
    border: none;
    border-radius: 999px;
    padding: 1rem 2rem;
+   min-width: max-content;
+   height: max-content;
 }
 
 .btn[data-variant='blue'] {
@@ -277,7 +294,6 @@ section[data-indicator] .section-content {
 
 .section-02__content-wrapper {
    position: relative;
-   z-index: 10;
 }
 
 .section-02__heading {
@@ -293,13 +309,13 @@ section[data-indicator] .section-content {
 }
 
 /*====================================================
-  Tablet 768px
+  Tablet
 ====================================================*/
 
 @media (min-width: 45rem) {
 
    :root {
-      --p-inline: 2.4rem;
+      --p-inline: clamp(2.5rem, -6.4286rem + 18.6012vw, 10.3125rem);
    }
 
    /* Utilities */
@@ -308,6 +324,10 @@ section[data-indicator] .section-content {
 
    .hero {
       margin-block-end: 5rem;
+   }
+
+   .hero::before {
+      margin-block-end: 4.5rem;
    }
 
    .hero__image {
@@ -361,7 +381,11 @@ section[data-indicator] .section-content {
 
 }
 
-@media (min-width: 58rem) {
+/*====================================================
+  Desktop
+====================================================*/
+
+@media (min-width: 60rem) {
 
    /* Utilities */
 
@@ -369,24 +393,54 @@ section[data-indicator] .section-content {
       font: var(--ff-body-md);
    }
 
+   /* General Styles */
+
+   header {
+      margin-block-end: 3.5rem;
+   }
+
    /* Hero Section */
 
-   .hero {
-      display: grid;
-      grid-template-columns: 1fr 34rem 1fr;
-      align-items: center;
-   }
 
    .hero__content {
+      grid-column: 2;
       padding-inline: unset;
-   }
-
-   .hero__image-right {
-      display: block;
    }
 
    .hero__image-left {
       transform: none;
-      margin-block-end: unset;
+      margin-block-end: 3rem;
+   }
+
+   .hero__heading {
+      font: var(--ff-heading-xl);
+      margin-block-end: 2rem;
+   }
+
+   .hero__copy {
+      margin-block-end: 2rem;
+   }
+
+   /* Section 02 / Footer */
+
+   .section-02__content::before {
+      background-image: url('./assets/desktop/image-footer.jpg');
+   }
+
+   .section-02__content-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+   }
+
+   .section-02__copy {
+      max-width: 21.875rem;
+      margin: unset;
+   }
+
+   .section-02__heading {
+      margin: unset;
    }
 }
