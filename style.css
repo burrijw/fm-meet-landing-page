@@ -34,6 +34,9 @@
    --move-size: calc(-1 * (var(--antenna-height) + var(--bulb-size) / 2));
 
    --p-inline: 1.5rem;
+   --full-screen-max-w: 1440px;
+
+   --hero-section-height: 358px;
 }
 
 /*====================================================
@@ -55,11 +58,18 @@ h3,
 h4,
 h5,
 h6 {
+   margin: unset;
    margin-inline: auto;
 }
 
 p {
    max-width: 45ch;
+}
+
+.image-grid,
+.section-02__content-wrapper {
+   margin-inline: auto;
+   max-width: var(--full-screen-max-w);
 }
 
 /*====================================================
@@ -147,17 +157,23 @@ header {
   Buttons / Links
 ====================================================*/
 
-.btn {
-   margin-inline: auto;
-   display: block;
+a.btn {
    text-decoration: none;
-   font: var(--ff-button);
+}
+
+a.btn,
+button.btn {
    border: none;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   gap: .375rem;
+   font: var(--ff-button);
    border-radius: 999px;
    padding: 1rem 2rem;
-   min-width: max-content;
-   height: max-content;
+   letter-spacing: 0.03em;
 }
+
 
 .btn[data-variant='blue'] {
    background-color: var(--eastern-blue);
@@ -240,6 +256,7 @@ section[data-indicator] .section-content {
 }
 
 .image-grid img {
+   max-width: 100%;
    border-radius: 0.5rem;
 }
 
@@ -269,11 +286,10 @@ section[data-indicator] .section-content {
 }
 
 .section-02__content {
-   min-height: 300px;
+   padding-block-start: calc((var(--bulb-size) / 2 + 3.875rem));
+   padding-block-end: 4.5rem;
    background-color: var(--blue-200);
    padding-inline: var(--p-inline);
-   padding-block-start: 5.75rem;
-   padding-block-end: 4rem;
    position: relative;
 }
 
@@ -287,6 +303,7 @@ section[data-indicator] .section-content {
    left: 0;
    background-image: url('./assets/mobile/image-footer.jpg');
    background-size: cover;
+   background-position: center;
    background-repeat: no-repeat;
    background-color: var(--blue-200);
    opacity: 11%;
@@ -299,7 +316,7 @@ section[data-indicator] .section-content {
 .section-02__heading {
    font: var(--ff-heading-sm);
    margin-block-end: 1.5rem;
-   max-width: 15ch;
+   max-width: 12ch;
    margin-inline: auto;
 }
 
@@ -319,6 +336,12 @@ section[data-indicator] .section-content {
    }
 
    /* Utilities */
+
+   /* Header */
+
+   header {
+      margin-block-end: 2rem;
+   }
 
    /* Hero Section */
 
@@ -385,7 +408,7 @@ section[data-indicator] .section-content {
   Desktop
 ====================================================*/
 
-@media (min-width: 60rem) {
+@media (min-width: 90rem) {
 
    /* Utilities */
 
@@ -401,10 +424,44 @@ section[data-indicator] .section-content {
 
    /* Hero Section */
 
+   .hero {
+      display: grid;
+      grid-template-columns: 1fr 33.75rem 1fr;
+      max-width: 1600px;
+      /* width: 90rem; */
+      margin-inline: auto;
+      min-height: var(--hero-section-height);
+   }
+
+   .hero::before,
+   .hero::after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: unset;
+      transform: unset;
+      /* background-size: auto var(--hero-section-height); */
+      margin-block-end: unset;
+
+   }
+
+   .hero::before {
+      background-image: url('./assets/desktop/image-hero-left.png');
+      background-position: top left -20px;
+   }
+
+   .hero::after {
+      background-image: url('./assets/desktop/image-hero-right.png');
+      background-position: bottom right -20px;
+   }
+
 
    .hero__content {
-      grid-column: 2;
-      padding-inline: unset;
+      align-self: end;
+      margin-block-end: .5rem;
+      padding: unset;
    }
 
    .hero__image-left {
@@ -423,6 +480,12 @@ section[data-indicator] .section-content {
 
    /* Section 02 / Footer */
 
+   .section-02__content {
+      display: flex;
+      padding-block: unset;
+      min-height: 308px;
+   }
+
    .section-02__content::before {
       background-image: url('./assets/desktop/image-footer.jpg');
    }
@@ -430,6 +493,7 @@ section[data-indicator] .section-content {
    .section-02__content-wrapper {
       display: flex;
       flex-direction: row;
+      flex-grow: 1;
       justify-content: space-between;
       align-items: center;
       text-align: left;
@@ -442,5 +506,15 @@ section[data-indicator] .section-content {
 
    .section-02__heading {
       margin: unset;
+   }
+}
+
+@media (min-width: 1601px) {
+   .hero::before {
+      background-position: top left;
+   }
+
+   .hero::after {
+      background-position: bottom right;
    }
 }
