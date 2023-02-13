@@ -180,6 +180,11 @@ button.btn {
    color: var(--alabaster);
 }
 
+.btn[data-variant='blue']:hover {
+   background-color: #71C0D4;
+   cursor: pointer;
+}
+
 .btn[data-variant='blue'] .version {
    color: var(--malibu);
 }
@@ -187,6 +192,11 @@ button.btn {
 .btn[data-variant='purple'] {
    background-color: var(--purple-200);
    color: var(--white);
+}
+
+.btn[data-variant='purple']:hover {
+   background-color: #B18BDD;
+   cursor: pointer;
 }
 
 .btn[data-variant='purple'] .version {
